@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DIM Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+  let arrayCodeSecretInput = [];
+  let arrayCodeSecret = ["j", "e", " ", "s", "u","i","s", " ", "u","n","e", " " ,"l","i","c","o","r","n","e"];
+  document.addEventListener("keydown",function (e) {
+    if (arrayCodeSecretInput.length < arrayCodeSecret.length) {
+      arrayCodeSecretInput.push(e.key);
+      console.log(arrayCodeSecretInput);
+      if (arrayCodeSecretInput.equals(arrayCodeSecret)) {
+        cornify_add();
+        console.log("GG");
+      }
+    }else{
+      arrayCodeSecretInput.length = 0;
+      console.log(arrayCodeSecretInput);
+    }
+    
+  })
+  //comparatif pris sur internet//
+  Array.prototype.equals = function (getArray) {
+  if (this.length != getArray.length) return false;
+
+  for (var i = 0; i < getArray.length; i++) {
+    if (this[i] instanceof Array && getArray[i] instanceof Array) {
+      if (!this[i].equals(getArray[i])) return false;
+    } else if (this[i] != getArray[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+  
+</script>
+</body>
+</html>
