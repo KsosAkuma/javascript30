@@ -6,9 +6,10 @@
   <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
+  <p></p>
 <script>
   let arrayCodeSecretInput = [];
-  let arrayCodeSecret = ["j", "e", " ", "s", "u","i","s", " ", "u","n","e", " " ,"l","i","c","o","r","n","e"];
+  let arrayCodeSecret = ["j", "e", "s", "u","i","s", "u","n","e","l","i","c","o","r","n","e"];
   document.addEventListener("keydown",function (e) {
     if (arrayCodeSecretInput.length < arrayCodeSecret.length) {
       arrayCodeSecretInput.push(e.key);
@@ -21,7 +22,7 @@
       arrayCodeSecretInput.length = 0;
       console.log(arrayCodeSecretInput);
     }
-    
+    document.querySelector("p").innerHTML= (arrayCodeSecretInput.join(" "));
   })
   //comparatif pris sur internet//
   Array.prototype.equals = function (getArray) {

@@ -58,6 +58,16 @@
       };
     }
 
+    const slideIn = document.getElementsByClassName("slide-in");
+    document.addEventListener("scroll",function () {
+      Array.from(slideIn).forEach(element => {
+      if(scrollY + 300 > element.offsetTop && scrollY - 300 < element.offsetTop ){
+        element.classList.add('active');
+      }else{
+        element.classList.remove('active');
+      }
+    });
+    })
   </script>
 
   <style>

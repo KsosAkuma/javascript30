@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>Mouse Shadow</title>
@@ -35,6 +35,16 @@
   </style>
 
 <script>
+
+  const title = document.querySelector('h1');
+  title.addEventListener('mousemove', function (e) {
+      let mouseX = e.offsetX ;
+      let mouseY = e.offsetY ;
+      // console.log(`xPos ${mouseX}`);
+      title.style.textShadow = `${mouseX}px ${mouseY}px black, -${mouseX}px -${mouseY}px red,
+      -${mouseX}px ${mouseY}px green, ${mouseX}px -${mouseY}px orange` ;
+      });
+
 </script>
 </body>
 </html>
