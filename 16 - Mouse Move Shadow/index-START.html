@@ -37,9 +37,18 @@
 <script>
 
   const title = document.querySelector('h1');
-  title.addEventListener('mousemove', function (e) {
-      let mouseX = e.offsetX ;
-      let mouseY = e.offsetY ;
+  const hero = document.querySelector('.hero');
+  const HbodyHeight = document.body.clientHeight;
+  const HbodyWidth = document.body.clientWidth;
+ 
+  hero.addEventListener('mousemove', function (e) {
+    
+    if(e.target != hero){
+      e.offsetX = null;
+      e.offsetY = null;
+    }
+      let mouseX = e.offsetX / HbodyWidth * 100;
+      let mouseY = e.offsetY / HbodyHeight * 100;
       // console.log(`xPos ${mouseX}`);
       title.style.textShadow = `${mouseX}px ${mouseY}px black, -${mouseX}px -${mouseY}px red,
       -${mouseX}px ${mouseY}px green, ${mouseX}px -${mouseY}px orange` ;
