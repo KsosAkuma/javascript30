@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>Click and Drag</title>
@@ -35,6 +35,27 @@
   </div>
 
 <script>
+const items = document.querySelector('.items');
+let interrupteur = false;
+
+// click Gauche enfoncé
+items.addEventListener("mousedown", function (e) {
+  items.classList.add("active");
+  interrupteur = true;
+})
+
+//clickGauche relaché
+items.addEventListener("mouseup", function (e) {
+  items.classList.remove("active");
+  interrupteur = false;
+
+})
+//déplacement de la souris
+items.addEventListener("mousemove",function (e) {
+  if(interrupteur == true){
+    items.scrollLeft -= e.movementX;
+  }
+  })
 </script>
 
   </body>
