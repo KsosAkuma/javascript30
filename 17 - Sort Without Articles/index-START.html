@@ -48,11 +48,26 @@
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 const enTrop = ["The ","A ","An "];
-let enleve = [];
-function tri(array1, array2) {
-  array1.forEach(element => {
-    
-  });
+let trier = bands.map((element) => {
+  for (let n = 0; n < enTrop.length; n++) {
+      const elem = enTrop[n];
+      if(element.includes(elem)){
+      return (element.substr(elem.length, element.length));
+      }
+  }
+  return element
+});
+let resultat = new Map();
+for (let i = 0; i < bands.length; i++) {
+  resultat.set(trier[i],bands[i])
+}
+resultat = (Array.from(resultat).sort());
+const list = document.getElementById('bands');
+for (const iterator of resultat) {
+  const li = document.createElement('li');
+  list.appendChild(li);
+  li.innerHTML = iterator[1];
+  console.log(iterator[1]);
 }
 
 </script>
