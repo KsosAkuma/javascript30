@@ -1,97 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Mouse Shadow</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mouse Shadow</title>
+  </head>
+  <body>
+    <div class="hero">
+      <h1 contenteditable>🔥WOAH!</h1>
+      <p>Cliqué jusqu'à 8 fois pour un rendu différent</p>
+    </div>
 
-  <div class="hero">
-    <h1 contenteditable>🔥WOAH!</h1>
-    <p>Cliqué jusqu'à 8 fois pour un rendu différent</p>
-  </div>
+    <style>
+      html {
+        color: black;
+        font-family: sans-serif;
+      }
 
-  <style>
-  html {
-    color: black;
-    font-family: sans-serif;
-  }
+      body {
+        margin: 0;
+      }
 
-  body {
-    margin: 0;
-  }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        flex-direction: column;
+      }
 
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    flex-direction: column;
-  }
+      h1 {
+        text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
+        font-size: 100px;
+      }
+    </style>
 
-  h1 {
-    text-shadow: 10px 10px 0 rgba(0,0,0,1);
-    font-size: 100px;
-  }
-  </style>
-
-<script>
-// DOM
-  const title = document.querySelector('h1');
-  const hero = document.querySelector('.hero');
-//variabl Global
-let interrupteur = 1;
-// position de l'élement en son centre
-  const titleX = title.offsetLeft + title.clientWidth / 2 ;
-  const titleY = title.offsetTop + title.clientHeight / 2 ; 
-// event
-  hero.addEventListener('mousemove', function (e) {
-   let mouseX = (titleX - e.clientX) / 2.6; //division reduit la portée max de l'ombre
-   let mouseY = (titleY - e.clientY) / 2.6;
-   if (interrupteur == 2){
-    title.style.textShadow = `${mouseX * 1.5}px ${mouseY * 1.5}px purple, ${mouseX * -1.5}px ${mouseY * -1.5}px red,
-    ${mouseX *-1}px ${mouseY * 1}px green, ${mouseX * 1}px ${mouseY * -1}px orange` ;
-   }else if (interrupteur == 3){
-    title.style.textShadow = `${mouseX * 1}px ${mouseY * -1}px purple, ${mouseX * -1}px ${mouseY * 1}px red,
-      ${mouseY * 1}px ${mouseX * -1}px green, ${mouseY * -1}px ${mouseX * 1}px orange` ;
-   }else if (interrupteur == 4){
-    title.style.textShadow = `${mouseX * 1}px ${mouseY * 1}px purple, ${mouseX * -1}px ${mouseY * -1}px red,
-      ${mouseY * 1}px ${mouseY *1}px green, ${mouseX * -1}px ${mouseX * -1}px orange` ;
-   }else if (interrupteur == 5){
-    title.style.textShadow = 
-    `${mouseX * 1}px ${mouseY * 1}px purple,
+    <script>
+      // DOM
+      const title = document.querySelector("h1");
+      const hero = document.querySelector(".hero");
+      //variabl Global
+      let interrupteur = 1;
+      // position de l'élement en son centre
+      const titleX = title.offsetLeft + title.clientWidth / 2;
+      const titleY = title.offsetTop + title.clientHeight / 2;
+      // event
+      hero.addEventListener("mousemove", function (e) {
+        let mouseX = (titleX - e.clientX) / 2.6; //division reduit la portée max de l'ombre
+        let mouseY = (titleY - e.clientY) / 2.6;
+        if (interrupteur == 2) {
+          title.style.textShadow = `${mouseX * 1.5}px ${
+            mouseY * 1.5
+          }px purple, ${mouseX * -1.5}px ${mouseY * -1.5}px red,
+    ${mouseX * -1}px ${mouseY * 1}px green, ${mouseX * 1}px ${
+            mouseY * -1
+          }px orange`;
+        } else if (interrupteur == 3) {
+          title.style.textShadow = `${mouseX * 1}px ${mouseY * -1}px purple, ${
+            mouseX * -1
+          }px ${mouseY * 1}px red,
+      ${mouseY * 1}px ${mouseX * -1}px green, ${mouseY * -1}px ${
+            mouseX * 1
+          }px orange`;
+        } else if (interrupteur == 4) {
+          title.style.textShadow = `${mouseX * 1}px ${mouseY * 1}px purple, ${
+            mouseX * -1
+          }px ${mouseY * -1}px red,
+      ${mouseY * 1}px ${mouseY * 1}px green, ${mouseX * -1}px ${
+            mouseX * -1
+          }px orange`;
+        } else if (interrupteur == 5) {
+          title.style.textShadow = `${mouseX * 1}px ${mouseY * 1}px purple,
     ${mouseX * -1}px ${mouseY * -1}px red,
     ${mouseX * -1}px ${mouseY * 1}px yellow,
     ${mouseX * 1}px ${mouseY * -1}px blue,
-    ${mouseY * 1}px ${mouseX *1}px green,
+    ${mouseY * 1}px ${mouseX * 1}px green,
     ${mouseY * -1}px ${mouseX * -1}px orange,
-    ${mouseY * -1}px ${mouseX *1}px pink,
-    ${mouseY * 1}px ${mouseX * -1}px cyan` ;
-   }else if (interrupteur == 6){
-    title.style.textShadow = `${mouseY * -1}px ${mouseY * 1}px purple, ${mouseY * 1}px ${mouseY * -1}px red,
-      ${mouseX * 1}px ${mouseX *-1}px green, ${mouseX * -1}px ${mouseX * 1}px orange` ;
-   }else if (interrupteur == 7){
-    title.style.textShadow = `${mouseY * -1}px ${mouseY * 1}px purple, ${mouseY * 1}px ${mouseY * -1}px red,
-    ${mouseY * -1}px ${mouseY * -1}px blue, ${mouseY * 1}px ${mouseY * 1}px yellow,
-      ${mouseX * 1}px ${mouseX *-1}px green, ${mouseX * -1}px ${mouseX * 1}px orange,
-      ${mouseX * 1}px ${mouseX *1}px cyan, ${mouseX * -1}px ${mouseX * -1}px pink` ;
-   }else if (interrupteur == 8){
-    title.style.textShadow = `${mouseX * -1}px ${mouseY * -1}px purple, ${mouseX * 1}px ${mouseY * -1}px red,
-      ${mouseY * -1}px ${mouseX *1}px green, ${mouseY * 1}px ${mouseX * -1}px orange` ;
-   }else if (interrupteur == 9){
-    title.style.textShadow = `${mouseX * 1}px ${mouseY * 1}px purple, ${mouseX * -1}px ${mouseY * 1}px red,
-      ${mouseX * 1}px ${mouseY *-1}px green, ${mouseY * -1}px ${mouseX * 1}px orange` ;
-   }else {
-    title.style.textShadow = `${mouseX * -1}px ${mouseY * -1}px purple, ${mouseX * 1}px ${mouseY * -1}px red,
-      ${mouseY * -1}px ${mouseX *-1}px green, ${mouseY * 1}px ${mouseX * 1}px orange` ;
-   }
-  });
-  hero.addEventListener('click',function () {
-   interrupteur++;
-   if(interrupteur >9){interrupteur = 1}
-  })
-
-</script>
-</body>
+    ${mouseY * -1}px ${mouseX * 1}px pink,
+    ${mouseY * 1}px ${mouseX * -1}px cyan`;
+        } else if (interrupteur == 6) {
+          title.style.textShadow = `${mouseY * -1}px ${mouseY * 1}px purple, ${
+            mouseY * 1
+          }px ${mouseY * -1}px red,
+      ${mouseX * 1}px ${mouseX * -1}px green, ${mouseX * -1}px ${
+            mouseX * 1
+          }px orange`;
+        } else if (interrupteur == 7) {
+          title.style.textShadow = `${mouseY * -1}px ${mouseY * 1}px purple, ${
+            mouseY * 1
+          }px ${mouseY * -1}px red,
+    ${mouseY * -1}px ${mouseY * -1}px blue, ${mouseY * 1}px ${
+            mouseY * 1
+          }px yellow,
+      ${mouseX * 1}px ${mouseX * -1}px green, ${mouseX * -1}px ${
+            mouseX * 1
+          }px orange,
+      ${mouseX * 1}px ${mouseX * 1}px cyan, ${mouseX * -1}px ${
+            mouseX * -1
+          }px pink`;
+        } else if (interrupteur == 8) {
+          title.style.textShadow = `${mouseX * -1}px ${mouseY * -1}px purple, ${
+            mouseX * 1
+          }px ${mouseY * -1}px red,
+      ${mouseY * -1}px ${mouseX * 1}px green, ${mouseY * 1}px ${
+            mouseX * -1
+          }px orange`;
+        } else if (interrupteur == 9) {
+          title.style.textShadow = `${mouseX * 1}px ${mouseY * 1}px purple, ${
+            mouseX * -1
+          }px ${mouseY * 1}px red,
+      ${mouseX * 1}px ${mouseY * -1}px green, ${mouseY * -1}px ${
+            mouseX * 1
+          }px orange`;
+        } else {
+          title.style.textShadow = `${mouseX * -1}px ${mouseY * -1}px purple, ${
+            mouseX * 1
+          }px ${mouseY * -1}px red,
+      ${mouseY * -1}px ${mouseX * -1}px green, ${mouseY * 1}px ${
+            mouseX * 1
+          }px orange`;
+        }
+      });
+      hero.addEventListener("click", function () {
+        interrupteur++;
+        if (interrupteur > 9) {
+          interrupteur = 1;
+        }
+      });
+    </script>
+  </body>
 </html>
